@@ -1,0 +1,29 @@
+<form action="" method="post" class="row g-3" enctype="multipart/form-data">
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Title</label>
+        <input type="text" value={{result.title}} name="title" class="form-control" id="inputAddress"
+            placeholder="titulo del articulo">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress2" class="form-label">Subtitle</label>
+        <input type="text" value={{result.subtitle}} name="subtitle" class="form-control" id="inputAddress2"
+            placeholder="subtitulo del articulo">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Body</label>
+        <input type="text" value={{result.body}} name="body" class="form-control" id="inputAddress"
+            placeholder="titulo del articulo">
+    </div>
+
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Imagen</label>
+        <input type="file" value={{result.img_id}} name="img_id" class="form-control" id="inputAddress"
+            placeholder="titulo del articulo">
+        <p><input type="checkbox" name="img_delete" id="img_delete" value="0">
+            eliminar imagen actual?</p> <input type="hidden" name="img_original" value="{{novedad.img_id}}">
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Mofidicar Articulo</button>
+    </div>
+</form>

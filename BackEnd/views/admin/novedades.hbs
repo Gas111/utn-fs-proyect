@@ -1,0 +1,39 @@
+<h2>Hola {{usuario}}</h2>
+<h6><a href="/admin/logout">Cerrar Sesion</a></h6>
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">titulo</th>
+      <th scope="col">subtitulo</th>
+      <th scope="col">cuerpo</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Modificar/Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each articles}}
+    <tr>
+      <th scope="row">{{id}}</th>
+      <td>{{title}}</td>
+      <td>{{subtitle}}</td>
+      <td>{{body}}</td>
+      <td>{{{imagen}}}</td>
+      <td>
+        <a href="/admin/novedades/modificar/{{id}}" class="btn btn-sm btn-secondary">
+          <i class="fa fa-pencil"></i>modificar</a>
+
+        <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-sm btn-secondary">
+          <i class="fa fa-trash"></i>Borrar</a>
+      </td>
+    </tr>
+
+    {{/each}}
+
+</table>
+
+
+<div class="col-2 text-rigth">
+  <a href="/admin/novedades/agregar" class="btn btn-success">
+    <i class="fa fa-plus"></i>Nuevo</a>
+</div>
