@@ -20,7 +20,7 @@ const Index = () => {
   }, [])
 
   return (
-    <div className="maSin">
+    <div className="main">
       <section className="main__offerts"></section>
 
       <section className="main__hot-products">

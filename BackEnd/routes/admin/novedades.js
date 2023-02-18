@@ -17,9 +17,9 @@ router.get('/', async (req, res, next) => {
         height: 100,
         crop: 'fill',
       })
-      return {...article, imagen }
+      return { ...article, imagen }
     } else {
-      return {...article, imagen: '' }
+      return { ...article, imagen: '' }
     }
   })
 
@@ -41,7 +41,8 @@ router.get('/agregar', async (req, res, next) => {
 router.post('/agregar', async (req, res, next) => {
   const title = req.body.title
   const subtitle = req.body.subtitle
-  const body = req.body.body
+  const price = req.body.price
+  const quantity = req.body.quantity
   let img_id = ''
   if (req.files && Object.keys(req.files).length > 0) {
     const imagen = req.files.image
@@ -49,11 +50,17 @@ router.post('/agregar', async (req, res, next) => {
   }
 
   try {
-    if (title != '' && subtitle != '' && body != '' && img_id != '') {
+    if (
+      title != '' &&
+      subtitle != '' &&
+      price != '' &&
+      quantity != ''
+    ) {
       const articles = await articlesModel.insertArticle({
         title,
         subtitle,
-        body,
+        price,
+        quantity,
         img_id,
       })
 
@@ -120,13 +127,14 @@ router.post('/modificar/:id', async (req, res, next) => {
     }
 
     const { id } = req.params
-    const {title,subtitle,body}=req.body
-    console.log(title,subtitle,body,id,img_id)
+    const { title, subtitle, price, quantity } = req.body
 
-    const result=await articlesModel.changeArticleById({title,subtitle,body,img_id},id)
+    const result = await articlesModel.changeArticleById(
+      { title, subtitle, price, quantity, img_id },
+      id,
+    )
 
     res.redirect('/admin/novedades')
-
   } catch (error) {}
 })
 
