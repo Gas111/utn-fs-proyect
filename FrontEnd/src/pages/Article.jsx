@@ -9,7 +9,7 @@ const Article = ({title,type,price,stock,image}) => {
                         
                     </div>
                     <div className="card-product__info">
-                        <h5 className="title-product">{title}}</h5>
+                        <h5 className="title-product">{title}</h5>
                         <p>Tipo:<span>{type}</span></p>
                         <p>Precio:<span>{price}</span></p>
                         <p>Stock:<span>{stock}</span><span> Unidades</span></p>
